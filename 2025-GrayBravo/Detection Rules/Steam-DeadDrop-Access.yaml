@@ -1,0 +1,22 @@
+title: CastleRAT Steam Dead Drop Resolver
+id: f3a8b7c6-5d9e-4f1a-8c2b-6e7f9a1d4c3e
+status: experimental
+description: Detects access to Steam profiles used as dead drop resolvers
+author: Security Research Team
+date: 2025-12-13
+tags:
+    - attack.command_and_control
+    - attack.t1102.001
+logsource:
+    category: proxy
+detection:
+    selection_steam:
+        c-uri|contains: 'steamcommunity.com/id/'
+    selection_profiles:
+        c-uri|contains:
+            - 'tfy5d6gohu8tgy687r7'
+            - 'krouvhsin34287f7h3'
+    condition: selection_steam and selection_profiles
+falsepositives:
+    - Extremely unlikely
+level: critical
