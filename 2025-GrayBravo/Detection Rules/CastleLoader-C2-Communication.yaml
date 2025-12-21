@@ -1,1 +1,31 @@
-
+title: CastleLoader C2 Communication Pattern
+id: b8e4f3d2-1a5c-4b3e-9f2d-6c8a7b9e4f1a
+status: experimental
+description: Detects distinctive HTTP patterns of CastleLoader C2 traffic
+references:
+    - https://www.recordedfuture.com/research/graybravos-castleloader-activity-clusters-target-multiple-industries
+author: Security Research Team
+date: 2025-12-13
+tags:
+    - attack.command_and_control
+    - attack.t1071.001
+logsource:
+    category: proxy
+detection:
+    selection_uri:
+        c-uri|contains:
+            - '/service/settings/'
+            - '/service/download/'
+    selection_method:
+        cs-method: 'GET'
+    selection_headers:
+        cs-headers|contains|all:
+            - 'Cache-Control: no-cache'
+            - 'Connection: Keep-Alive'
+            - 'Pragma: no-cache'
+    filter_accept:
+        cs-headers|contains: 'Accept:'
+    condition: selection_uri and selection_method and selection_headers and not filter_accept
+falsepositives:
+    - Very unlikely
+level: critical
