@@ -4,7 +4,7 @@ status: experimental
 description: Detects distinctive HTTP patterns of CastleLoader C2 traffic
 references:
     - https://www.recordedfuture.com/research/graybravos-castleloader-activity-clusters-target-multiple-industries
-author: Security Research Team
+author: Recorded Future Research Team
 date: 2025-12-13
 tags:
     - attack.command_and_control
