@@ -108,12 +108,6 @@ GrayBravo demonstrates **high operational maturity** evidenced by:
 - Infrastructure expansion (new ASNs, hosting providers)
 - Diversification of targeting (logistics, hospitality, general)
 
-### Underground Connections
-
-- Potential link to "Sparja" persona on Exploit Forum (LOW-MODERATE confidence)
-- Use of BEARHOST bulletproof hosting network (AS211659, AS216341)
-- Integration with third-party MaaS (Matanbuchus loader)
-- Access to EV code signing certificates
 
 ## Recommendations Priority
 
