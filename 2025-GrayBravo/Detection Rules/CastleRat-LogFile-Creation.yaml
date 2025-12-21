@@ -1,1 +1,27 @@
-
+title: CastleRAT Keylogger Log File Creation
+id: i6d2e1f9-8a3b-4c5d-9f6e-1b2c7a8d4e9f
+status: stable
+description: Detects distinctive log file paths used by CastleRAT
+author: Recorded Future Research Team
+date: 2025-12-13
+tags:
+    - attack.collection
+    - attack.t1115
+    - attack.t1056.001
+logsource:
+    category: file_event
+    product: windows
+detection:
+    selection_paths:
+        TargetFilename|contains:
+            - '\AppData\Local\Temp\MuuuuuhGer3'
+            - '\AppData\Local\JohniiDepp'
+            - '\AppData\Local\LuchiiSvet'
+    selection_files:
+        TargetFilename|endswith:
+            - '\keylog.txt'
+            - '\clipboardlog.txt'
+    condition: selection_paths or selection_files
+falsepositives:
+    - None expected
+level: critical
