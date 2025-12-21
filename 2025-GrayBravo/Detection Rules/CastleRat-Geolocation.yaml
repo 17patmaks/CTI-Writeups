@@ -1,1 +1,23 @@
-
+title: CastleRAT Geolocation API Request
+id: c9f5a4b3-2d6e-4c7f-8b1a-5e9d3f2c8b4e
+status: experimental
+description: Detects geolocation queries characteristic of CastleRAT malware
+author: Recorded Future Security Team
+date: 2025-12-13
+tags:
+    - attack.discovery
+    - attack.t1082
+logsource:
+    category: proxy
+detection:
+    selection_domain:
+        c-uri|contains: 'ip-api.com'
+    selection_fields:
+        c-uri|contains:
+            - '/line/?fields=16385'
+            - '/line/?fields=147457'
+            - '/line/?fields=147505'
+    condition: selection_domain and selection_fields
+falsepositives:
+    - Legitimate network tools
+level: medium
