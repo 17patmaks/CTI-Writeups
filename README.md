@@ -1,2 +1,2 @@
-# CTI-Writeups
+# Writeups
 Collection of writeups 
